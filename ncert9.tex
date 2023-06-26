@@ -17,73 +17,63 @@
         \textbf\large{CHAPTER-9 \\ TRIANGLES}
 \end{center}
 \section{Exercise 11.4}
-Question(4).Construct a triangle $XYZ$ in which $\angle{Y}=30^0$,$\angle{Z}=90^0$ and $XY+YZ+ZX=11cm$. \\
-
+Question(4).Construct a triangle $XYZ$ in which $\angle{Y}=30\degree$,$\angle{Z}=90\degree$ and $XY+YZ+ZX=11cm$. \\
 \textbf{Solution:}\\
 Let $\vec{X}$,$\vec{Y}$ and $\vec{Z}$ are the vertices of the triangle with coordinates.
 Given $XY+YZ+ZX=8cm$.So the coordinate of the vertice  $\vec{X}$ is:
-\begin{center}
+\begin{align}
 {
-$\vec{X} =\myvec{0\\0}$
+\vec{X} =\myvec{0\\0}
 }
-\end{center}
-Also given $\angle{Y}=30^0$ and $\angle{Z}=90^0$ so by finding the length of sides we can form a required triangle. \\
+\end{align}
+Also given $\angle{Y}=30\degree$ and $\angle{Z}=90\degree$ so by finding the length of sides we can form a required triangle. \\
  The input parameters for this construction are\\
  \begin{table}[h]
 	 \centering
-	 \input{./table/table.tex}
+	 \input{./table(m)/table.tex}
 	 \caption{Parameters}
 	 \label{tab:table1}
  \end{table}\\
-
- From the given information\\
+From the given information\\
  \begin{align}
-     a+b+c=k\\
-     b\cos{Z}+c\cos{Y}-a=0\\
-     b\sin{Z}-c\sin{Y}=0
+     \vec{a}+\vec{b}+\vec{c}=\vec{k}\\
+	 \vec{b}\cos{\vec{Z}}+\vec{c}\cos{\vec{Y}}-\vec{a}=0\\
+	 \vec{b}\sin{\vec{Z}}-\vec{c}\sin{\vec{Y}}=0
  \end{align}
- Resulting in the matrix equations:\\
+ Resulting in the matrix equations:
  \begin{align}
-     \myvec{1 & 1 & 1\\-1 & \cos{Z} & \cos{Y}\\0 & \sin{Z} & -\sin{Y}}\myvec{a\\b\\c}=ke1
+	 \myvec{1 & 1 & 1\\-1 & \cos{\vec{Z}} & \cos{\vec{Y}}\\0 & \sin{\vec{Z}} & -\sin{\vec{Y}}}\myvec{\vec{a}\\ \vec{b}\\ \vec{c}}=\vec{k}\vec{e_1}
  \end{align}
-  Substitute the values of k,$\vec{e_1}$,$\angle{Y}$ and $\angle{Z}$\\
+ Substituting the values of $\vec{k}$,$\vec{e_1}$,$\angle{Y}$,$\angle{Z}$
+ \begin{align}
+     \myvec{1 & 1 & 1\\-1 & \cos{90\degree} & \cos{30\degree}\\ 0 & \sin{90\degree} & -\sin{30\degree}}\myvec{\vec{a}\\ \vec{b}\\ \vec{c}}= 11\myvec{1 \\ 0 \\ 0 }
+ \end{align}
   \begin{align}
-       \myvec{1 & 1 & 1\\-1 & \cos{90\degree} & \cos{30\degree}\\0 & \sin{90\degree} & -\sin{30\degree}}\myvec{a\\b\\c}= 11\myvec{1 \\ 0 \\ 0 }
+      \myvec{1 & 1 & 1\\-1 & 0 & \sqrt{3}/2\\0 &  1 & -1/2}\myvec{\vec{a}\\ \vec{b}\\ \vec{c}}= \myvec{11 \\ 0 \\ 0 }
   \end{align}
-  \begin{align}
-      \myvec{1 & 1 & 1\\-1 & 0 & \sqrt{3}/2\\0 & \1 & -1/2}\myvec{a\\b\\c}= 11\myvec{1 \\ 0 \\ 0 }
-  \end{align}
-  From the above matrix we get the equations as:\\
-  \begin{align}
-      a+b+c=11\\
-      -a+c\sqrt{3}/2=0\\
-      b-c/2=0
-  \end{align}
-  From the equations 8 and 9 we get:\\
-  \begin{align}
-      a=c\sqrt{3}/2\\
-      b=c/2
-  \end{align}
-  Substitute the above equations in equation 6,we get the value of c:
-  \begin{align}
-      c=\frac{22}{3+\sqrt{3}}\\
-      c=4.65
-  \end{align}
-  Therefore we get the values of a and b :
-  \begin{align}
-      a=4.03\\
-      b=2.32
-  \end{align}
-  Therefore the coodinates of the vertices are:
-  \begin{align}
-      X=\myvec{0\\0}\\
-      Z=\myvec{c/2\\0}=\myvec{b\\0}=\myvec{2.32 \\ 0}\\
-      Y=\myvec{c/2 \\ c\sqrt{3}/2}=\myvec{b \\ a}=\myvec{2.32 \\ 4.03}
-  \end{align}
+ Using row reduction methods to bring the values of $\vec{a}$,$\vec{b}$,$\vec{c}$ into row-reduced echelon form,
+ \begin{align}
+     \xrightarrow[]{R_2 \rightarrow R_2+R_1}\myvec{1 & 1 & 1\\ 0 & 1 & \frac{\sqrt{3}}{2}+1\\0 &  1 & \frac{-1}{2}}\myvec{\vec{a}\\ \vec{b}\\ \vec{c}}= \myvec{11 \\ 11 \\ 0 }\\
+     \xrightarrow[]{R_1 \rightarrow R_1-R_2}\myvec{1 & 0 & \frac{-\sqrt{3}}{2}\\0 & 1 & \frac{\sqrt{3}}{2}+1\\0 &  0 & \frac{-1}{2}}\myvec{\vec{a}\\ \vec{b}\\ \vec{c}}= \myvec{0 \\ 11 \\ 0 }\\
+     \xrightarrow[]{R_3 \rightarrow R_3-R_2}\myvec{1 & 0 & \frac{-\sqrt{3}}{2}\\0 & 1 & \frac{\sqrt{3}}{2}+1\\0 &  0 & \frac{-\sqrt{3}-3}{2}}\myvec{\vec{a}\\ \vec{b}\\ \vec{c}}= \myvec{0 \\ 11 \\ -11 }\\
+     \xrightarrow[]{R_3 \rightarrow \frac{2}{-\sqrt{3}-3} R_3}\myvec{1 & 0 & \frac{-\sqrt{3}}{2}\\0 & 1 & \frac{\sqrt{3}}{2}+1\\0 &  0 & 1}\myvec{\vec{a}\\ \vec{b}\\ \vec{c}}= \myvec{0 \\ 11 \\ \frac{22}{3+\sqrt{3}} }\\
+     \xrightarrow[]{R_1 \rightarrow R_1+\frac{\sqrt{3}}{2}R_2}\myvec{1 & 0 & 0 \\ 0 & 1 & \frac{\sqrt{3}}{2}+1\\0 &  0 & 1}\myvec{\vec{a}\\ \vec{b}\\ \vec{c}}= \myvec{\frac{11\sqrt{3}}{3+\sqrt{3}} \\ 11 \\\frac{22}{3+\sqrt{3}}  }\\
+	 \xrightarrow[]{R_2 \rightarrow R_2-(\frac{\sqrt{3}}{2}+1)R_3}\myvec{1 & 0 & 0 \\ 0 & 1 & 0\\0 &  0 & 1}\myvec{\vec{a}\\ \vec{b}\\ \vec{c}}= \myvec{\frac{11\sqrt{3}}{3+\sqrt{3}} \\ 11(1-\frac{\sqrt{3}+2}{\sqrt{3}+3}) \\\frac{22}{3+\sqrt{3}}}
+ \end{align}
+ After reduction the values of $\vec{a}$ , $\vec{b}$ , $\vec{c}$ are:
+ \begin{align}
+     \myvec{\vec{a}\\ \vec{b} \\ \vec{c}}=\myvec{\frac{11\sqrt{3}}{3+\sqrt{3}} \\ 11(1-\frac{\sqrt{3}+2}{\sqrt{3}+3}) \\\frac{22}{3+\sqrt{3}}}
+ \end{align}
+ Therefore the coordinates of the vertices are:
+ \begin{align}
+      \vec{X}=\myvec{0\\0}\\
+      \vec{Z}=\myvec{\vec{b}\\0}=\myvec{11(1-\frac{\sqrt{3}+2}{\sqrt{3}+3}) \\ 0}\\                                               
+      \vec{Y}=\myvec{\vec{b} \\ \vec{a}}=\myvec{11(1-\frac{\sqrt{3}+2}{\sqrt{3}+3}) \\ \frac{11\sqrt{3}}{3+\sqrt{3}} }
+ \end{align}
  Construction:\\
  \begin{figure}[h]
 	 \begin{center}
-		 \includegraphics[width=\columnwidth]{code/fig.pdf}
+		 \includegraphics[width=\columnwidth]{code(m)/fig.pdf}
 	 \end{center}
 	 \caption{Triangle XYZ}
 	 \label{fig:Fig1}
