@@ -55,7 +55,7 @@ if M.shape[0] == 3:
     for i, txt in enumerate(vert_labels):   
         plt.annotate(txt, (M[i, 0], M[i, 1]), textcoords="offset points", xytext=(0, 10), ha='center')
 
-
+#plotting the points of X,Y,Z
 plt.xlabel('$x$')
 plt.ylabel('$y$')
 plt.legend(loc='best')
