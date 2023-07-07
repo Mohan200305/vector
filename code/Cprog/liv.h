@@ -3,11 +3,9 @@ double **createMat(int m, int n);
 void readMat(double **p, int m,int n);
 double **loadtxt(char *str,int m,int n);
 void print(double **p, int m,int n);
-double** matX(double v1, double v2);
 double** scalarProduct(double scalar, double **mat);
 double **linalg_inv(double **mat, int m, int n);
 double **matmul(double **a, double **b, int m, int n, int p);
-void save_X(double **a, int rows, int cols);
 void save_q(double **a, int rows, int cols);
 //End function declaration
 
@@ -55,25 +53,6 @@ double **a;
 int i,j;
 }
 //end function for reading of matrix
-
-//Defining the function for creating matrix X 
-double** matX(double v1, double v2) { 
-    double **vector = (double **) malloc(2 * sizeof(*vector));  
-    for(int i = 0; i < 2; i++){ 
-     for(int j=0;j<1;j++){ 
-        vector[i] = (double*) malloc(sizeof(vector)); 
-     } 
-    } 
-    vector[0][0] = v1; 
-    vector[1][0] = v2; 
-     
- 
-    return vector; 
-} 
-//end function for matrix X
-
-
-
 
 
 //defining th funcion for printing of matrix 
@@ -165,28 +144,6 @@ return c;
  
 }
 //end functon for martrix multiplication
-
-
-//defining th function for saving the values of X in dat file
-void save_X(double **a, int rows, int cols)
-{ 
-	FILE *fp;
-        fp = fopen("X.dat", "w");  
-  //fprintf(fp, "The result of the multiplication is:\n");
-  int i, j;
-  for (i = 0; i < rows; i++) {
-    //fprintf(fp, "[");  
-    for (j = 0; j < cols; j++) {
-      fprintf(fp, "%lf", a[i][j]);  
-      if (j < cols - 1) {
-        //fprintf(fp, ", ");    
-	}
-    }
-    fprintf(fp, "\n");
-  } 
-  fclose(fp);
- }
-//end function of X
 
 
 
