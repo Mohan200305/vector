@@ -8,11 +8,11 @@ int main()
     double **e1,**e2,**q1,**q2,**q,**X;  
      double k=11;
      X=matX(0,0);                               //matrix for the point vector X
-     e1=loadtxt("e1.dat",3,1);                   
+     e1=loadtxt("e1.dat",3,1);                  //reading the values of matrix e1 from the dat file
     print(e1,3,1);   
     e2=scalarProduct(k,e1);                   //multiplying the scalar value with the matrix e1
     print(e2,3,1);    
-    q1=loadtxt("q1.dat",3,3);
+    q1=loadtxt("q1.dat",3,3);                  //reading the values of matrix q1 from the dat file
     print(q1,3,3);   
     q2=linalg_inv(q1,3,3);                    //inverse of the matrix q1
     print(q2,3,3);   
