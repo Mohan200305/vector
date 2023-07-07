@@ -1,15 +1,13 @@
 //Function declration
 double **createMat(int m, int n);
-double** matX(double v1, double v2);
-double** mate1(double v1, double v2,double v3);
+void readMat(double **p, int m,int n);
+double **loadtxt(char *str,int m,int n);
 void print(double **p, int m,int n);
+double** matX(double v1, double v2);
 double** scalarProduct(double scalar, double **mat);
-double** matq1(double v1, double v2,double v3,double v4,double v5,double v6,double v7,double v8,double v9);
 double **linalg_inv(double **mat, int m, int n);
 double **matmul(double **a, double **b, int m, int n, int p);
 void save_X(double **a, int rows, int cols);
-void save_e1(double **a, int rows, int cols);
-void save_q1(double **a, int rows, int cols);
 void save_q(double **a, int rows, int cols);
 //End function declaration
 
@@ -35,6 +33,28 @@ double **createMat(int m, int n) {
 
 //end function for the matrix creation
 
+//Defining the function for reading matrix 
+void readMat(double **p, int m,int n)
+{
+ int i,j;
+ for(i=0;i<m;i++)
+ {
+  for(j=0;j<n;j++)
+  {
+   scanf("%lf",&p[i][j]);
+  }
+ }
+}
+//End function for reading matrix
+
+//Read  matrix from file
+double **loadtxt(char *str,int m,int n)
+{
+FILE *fp;
+double **a;
+int i,j;
+}
+//end function for reading of matrix
 
 //Defining the function for creating matrix X 
 double** matX(double v1, double v2) { 
@@ -53,21 +73,7 @@ double** matX(double v1, double v2) {
 //end function for matrix X
 
 
-//Defining the function for creating matrix e1
-double** mate1(double v1, double v2,double v3) { 
-    double **vector = (double **) malloc(2 * sizeof(*vector));  
-    for(int i = 0; i < 3; i++){ 
-     for(int j=0;j<1;j++){ 
-        vector[i] = (double*) malloc(sizeof(vector)); 
-     } 
-    } 
-    vector[0][0] = v1; 
-    vector[1][0] = v2; 
-    vector[2][0] = v3; 
- 
-    return vector; 
-} 
-//end function for matrix X
+
 
 
 //defining th funcion for printing of matrix 
@@ -106,27 +112,7 @@ double** scalarProduct(double scalar, double **mat) {
 //end function for scalar multiplication
 
 
-//definiing the function for crreating matrix q1
-double** matq1(double v1, double v2,double v3,double v4,double v5,double v6,double v7,double v8,double v9) { 
-    double **vector = (double**) malloc(2 * sizeof(*vector));  
- 
-    for(int i = 0; i < 3; i++){ 
-     for(int j=0;j<3;j++){ 
-               vector[i] = (double*) malloc(sizeof(vector)); 
-     } 
-    } 
-    vector[0][0] = v1; 
-    vector[0][1] = v2; 
-    vector[0][2] = v3; 
-    vector[1][0] = v4; 
-    vector[1][1] = v5; 
-    vector[1][2] = v6; 
-    vector[2][0] = v7; 
-    vector[2][1] = v8; 
-    vector[2][2] = v9; 
-return vector; 
-} 
-//end function for matrix q1
+
 
 
 //defining the function for 3x3 inverse of a matrix
@@ -202,49 +188,6 @@ void save_X(double **a, int rows, int cols)
  }
 //end function of X
 
-
-//defiining the function for saving the values of e1
-void save_e1(double **a, int rows, int cols) 
-{
-	FILE *fp;
-  fp = fopen("e1.dat", "w");  
-  //fprintf(fp, "The result of the multiplication is:\n");
-  int i, j; 
-  for (i = 0; i < rows; i++) {
-    //fprintf(fp, "[");  
-    for (j = 0; j < cols; j++) {
-      fprintf(fp, "%lf", a[i][j]);   
-      if (j < cols - 1) {
-        //fprintf(fp, ", ");     
-	}
-    }   
-    fprintf(fp, "\n");
-  } 
-  fclose(fp);
-}
-//end function of e1
-
-
-//defining the function for saving the values of q1
-void save_q1(double **a, int rows, int cols) 
-{
-	FILE *fp;
-  fp = fopen("q1.dat", "w");  
-  //fprintf(fp, "The result of the multiplication is:\n");
-  int i, j; 
-  for (i = 0; i < rows; i++) {
-    //fprintf(fp, "[");  
-    for (j = 0; j < cols; j++) {
-      fprintf(fp, "%lf", a[i][j]);   
-      if (j < cols - 1) {
-        //fprintf(fp, ", ");     
-	}
-    }   
-    fprintf(fp, "\n");
-  } 
-  fclose(fp);
-}
-//end function of q1 
 
 
 //defining the function for saving the values of q(output values)
