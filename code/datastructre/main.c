@@ -4,6 +4,7 @@
 int main() { 
  
     Node* q2 = createMatrix(3, 3); 
+    Node* X = createMatrix(2,1);
 
     printMatrix(q2, 3, 3); 
  
@@ -17,6 +18,7 @@ int main() {
     printf("Multiplied Matrix:\n"); 
     printMatrix(multipliedMatrix, 3, 1); 
     createDatMat("q.dat",multipliedMatrix);
+    createDatMat("X.dat",X);
  
     return 0; 
 }
